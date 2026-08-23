@@ -1,0 +1,2 @@
+"use client";import{usePathname as a}from"next/navigation";import{Fragment as i,jsx as t,jsxs as l}from"react/jsx-runtime";function d(){let e=a();(e==="/"||e==="")&&(e="/index"),e.endsWith("/")&&e!=="/"&&(e=e.slice(0,-1));let n=`/.onto${e}.md`;return l(i,{children:[t("link",{rel:"alternate",type:"text/markdown",href:n,title:"AI-optimized Markdown version"}),t("link",{rel:"alternate",type:"text/plain",href:"/llms.txt",title:"LLM-readable site manifest"})]})}export{d as OntoHead};
+//# sourceMappingURL=OntoHead.mjs.map

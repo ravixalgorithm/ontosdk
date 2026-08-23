@@ -1,0 +1,7 @@
+{
+    "name": "onto-sdk",
+    "private": true,
+    "workspaces": [
+        "packages/*"
+    ]
+}

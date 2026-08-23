@@ -1,0 +1,221 @@
+# Onto | AI Content Negotiation & Free AIO Score Calculator
+> Get your BuildOnto AIO Score. Onto serves clean Markdown to AI agents instead of HTML noise. Same content, right format. Optimized for GPTBot, ClaudeBot, and LLM crawlers.
+
+**Source:** /index
+**Extracted:** 2026-03-16T03:02:53.002Z
+
+---
+Onto SDK Alpha is live
+
+|
+
+Waitlist is open.[Get Early Access →](#waitlist)
+
+Vercel Validated. Cloudflare Validated.
+
+# AI is reading your website wrong.
+
+Modern websites are built for human eyes — not AI agents. When GPTBot, ClaudeBot, or Perplexity crawls your site, it gets back hundreds of kilobytes of Tailwind classes, tracking scripts, and layout divs.
+
+The result: AI agents hallucinate. Wrong prices. Outdated features. Missing citations.
+
+Onto fixes this. We sit at the edge of your site and serve clean, accurate Markdown to AI agents — the same content, the right format. One line of code. No changes to your site.
+
+Run AIO (Agent Input Optimization) Audit
+
+\>SCAN
+
+[Get Early Access](#waitlist)
+
+152 Sites Scanned
+
+|
+
+Avg Score: 20/100
+
+|
+
+Token Waste Detected: 1.40 GB
+
+10-100x
+
+Payload Reduction
+
+<15ms
+
+Edge Latency
+
+100%
+
+Human experience preserved
+
+The Widening Gap
+
+## The modern web is optimized for humans,  
+not AI agents.
+
+A typical Next.js page is 800KB. The useful content inside it? Around 8KB. The other 792KB is CSS framework classes, JavaScript bundles, animation wrappers, and tracking scripts — none of which helps an AI agent understand what your product does or what it costs.
+
+AI crawlers don't skip the noise. They read all of it. And when your content is buried inside React boilerplate, they fill in the gaps — with whatever sounds plausible. That's how hallucinations happen.
+
+This isn't a content problem. It's a format problem. And nobody had built the infrastructure layer to fix it — until now.
+
+Performance\_Index
+
+Human Browser
+
+HTML/JS
+
+~800KB PAYLOAD
+
+AI Agent Environment
+
+Markdown
+
+~8KB (OPTIMIZED)
+
+VALIDATION\_CASE // CORE\_RESULT
+
+## We proved it works. On our own site.
+
+Standard\_Web\_Protocol
+
+Before Onto: Gemini couldn't accurately return our own scoring formula. It hallucinated the weights and pillar names.
+
+AIO Score
+
+50/100
+
+React Tax
+
+91.6%
+
+Waste
+
+92%
+
+Onto\_Optimized\_Layer
+
+After installing the Onto SDK: Gemini returned our formula perfectly — exact weights, exact pillar names, zero hallucination. Same content. Right format.
+
+AIO Score
+
+80/100
+
+React Tax
+
+0.0%
+
+Waste
+
+0%
+
+Verification\_Successful
+
+Onto SDK v1.0.4-Edge
+
+System Architecture
+
+## Four layers. One install.
+
+Philosophically, Onto avoids creating a shadow web. We faithfully represent the same underlying content in multiple formats based on the consumer's ontology.
+
+CORE\_LAYER\_01
+
+ENTRY\_VECTOR
+
+### AIO Score Calculator
+
+Free. Instant. Enter any URL and get your full AI‑readiness report — React Tax percentage, semantic richness score, and content negotiation check. See exactly what AI agents are receiving from your site right now.
+
+State: Production\_Stable
+
+CORE\_LAYER\_02
+
+PROVISIONING\_ENGINE
+
+### @ontosdk/next Extractor
+
+Open‑source Next.js plugin. Installs with one line. At build time, it traverses your route tree, strips visual noise, and compiles every page into clean Markdown and JSON. No runtime overhead.
+
+State: v1.0.4\_Released
+
+CORE\_LAYER\_03
+
+ROUTING\_LAYER
+
+### Edge Middleware
+
+The traffic cop. Detects AI agents via Accept headers and User-Agent strings in under 15ms. Routes them to your pre‑compiled Markdown payloads. Human visitors get the full HTML experience — untouched.
+
+State: Enterprise\_Ready
+
+CORE\_LAYER\_04
+
+SaaS Dashboard
+
+### Control Plane
+
+Coming Q3 2026. See which AI agents are crawling your site, what they're accessing, and control exactly what they receive. Per-route context injection, agent analytics, brand tone controls.
+
+State: In\_Development
+
+SECTOR\_ANALYSIS // VALIDATION
+
+## The industry already validated the thesis.
+
+The core thesis of Onto is aggressively validated by recent research on LLM context windows and infrastructure moves by major hosting providers.
+
+[
+
+~99%
+
+Payload Reduction
+
+### Vercel
+
+Serving Markdown to AI agents reduces payload size by ~99%. Complex React pages drop from hundreds of KBs to a few KBs of pure Markdown.
+
+
+
+](https://vercel.com/blog/making-agent-friendly-pages-with-content-negotiation)[
+
+0.0
+
+Hallucination Mitigation
+
+### Anthropic Research
+
+Token noise — the ratio of irrelevant boilerplate to semantic text — directly degrades a model's ability to extract accurate facts.
+
+
+
+](https://arxiv.org/abs/2307.03172)[
+
+$$$
+
+WAF Evasion Avoidance
+
+### Cloudflare
+
+Their Markdown for Agents feature converts HTML to Markdown at the edge — positioning AI crawlers as first-class citizens.
+
+
+
+](https://blog.cloudflare.com/markdown-for-agents/)
+
+The infrastructure need is proven. Onto is how you implement it today.
+
+![Onto Logo](/logo.png)
+
+Platform\_Access: Enterprise\_Beta\_v1
+
+## Your site is losing AI traffic right now.
+
+Check your AIO score in 10 seconds. See exactly what AI agents receive when they visit — and what they could get with Onto.
+
+$
+
+Get Early Access
+
+Early Access: 26 Waiting

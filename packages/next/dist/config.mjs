@@ -1,0 +1,4 @@
+function r(e){let t=[];if(t.push(`# ${e.name}`),t.push(""),t.push(`> ${e.summary}`),t.push(""),e.routes&&e.routes.length>0){t.push("## Key Routes"),t.push("");for(let s of e.routes){let n=`${e.baseUrl}${s.path}`;t.push(`- [${s.path}](${n}): ${s.description}`)}t.push("")}if(e.externalLinks&&e.externalLinks.length>0){t.push("## Resources"),t.push("");for(let s of e.externalLinks)s.description?t.push(`- [${s.title}](${s.url}): ${s.description}`):t.push(`- [${s.title}](${s.url})`);t.push("")}if(e.sections&&e.sections.length>0)for(let s of e.sections)t.push(`## ${s.heading}`),t.push(""),t.push(s.content),t.push("");return t.join(`
+`).trim()+`
+`}export{r as generateLlmsTxt};
+//# sourceMappingURL=config.mjs.map
