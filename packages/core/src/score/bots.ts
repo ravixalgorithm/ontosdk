@@ -42,7 +42,9 @@ export const AI_BOTS: AiBot[] = [
   // Meta
   { name: 'Meta-ExternalAgent', company: 'Meta', addedAt: '2025-01-01' },
   { name: 'Meta-ExternalFetcher', company: 'Meta', addedAt: '2025-01-01' },
-  { name: 'facebookexternalhit', company: 'Meta', addedAt: '2025-03-25' },
+  // Not facebookexternalhit: that is Meta's link-preview fetcher (the card drawn when a
+  // link is shared on Facebook, Instagram or Messenger). Served Markdown, it finds no
+  // og: tags and the card comes out blank.
   { name: 'FacebookBot', company: 'Meta', addedAt: '2025-01-01' },
 
   // Mistral
