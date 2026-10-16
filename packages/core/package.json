@@ -33,7 +33,7 @@
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch",
-    "test": "node test/verify-tables.mjs",
+    "test": "node test/verify-tables.mjs && node test/verify-boxes.mjs",
     "typecheck": "tsc --noEmit",
     "prepublishOnly": "npm run build"
   },

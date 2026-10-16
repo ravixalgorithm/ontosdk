@@ -52,6 +52,43 @@ function demoteHeadings(markdown: string): string {
   return lines.join('\n');
 }
 
+// Display values that make an element its own box. Matched against Tailwind
+// class tokens (optionally variant-prefixed, e.g. `md:flex`) and inline styles.
+const BOX = 'block|inline-block|flex|inline-flex|grid|inline-grid|table|table-cell|list-item|flow-root';
+const BOX_CLASS = new RegExp(`(?:^|\\s)(?:[^\\s]*:)?(${BOX})(?=\\s|$)`);
+const BOX_STYLE = new RegExp(`display\\s*:\\s*(${BOX})\\b`);
+const CONTAINER = /^(?:inline-)?(?:flex|grid)$/;
+
+function displayOf(el: cheerio.Cheerio<any>): string | undefined {
+  return (el.attr('style') || '').match(BOX_STYLE)?.[1] ?? (el.attr('class') || '').match(BOX_CLASS)?.[1];
+}
+
+/**
+ * Pages built from flex/grid layouts often put sibling boxes side by side with
+ * no whitespace between them (`<li class="flex"><span>PT-12</span><span>Title
+ * </span>`). The browser shows them apart; Turndown sees inline spans and glues
+ * the text into "PT-12Title". Pad every element that renders as its own box —
+ * a flex/grid child, a span styled block/inline-flex, a button — with spaces on
+ * the outside. Turndown collapses repeated whitespace and drops it next to real
+ * blocks, so this never splits a word or lands inside inline formatting.
+ * Skips <pre>/<code>, where whitespace is content.
+ *
+ * Form inputs go first: they render to nothing, but Turndown keeps whitespace
+ * after a void element, and that space can swallow the break between two
+ * blocks ("Camera\n\nPause" → "CameraPause"). Task-list checkboxes stay for GFM.
+ */
+function separateBoxes($: cheerio.CheerioAPI): void {
+  $('input').not('li > input[type="checkbox"]').remove();
+  const pad = (el: cheerio.Cheerio<any>) => el.before(' ').after(' ');
+  $('[class], [style], button').each((_, node) => {
+    const el = $(node);
+    if (el.closest('pre, code').length) return;
+    const display = displayOf(el);
+    if (display || node.tagName === 'button') pad(el);
+    if (display && CONTAINER.test(display)) el.children().each((_, c) => void pad($(c)));
+  });
+}
+
 export function extractContent(
   html: string,
   sourceUrl: string = 'Generated Output',
@@ -89,6 +126,7 @@ export function extractContent(
   });
 
   $('script, style, noscript, iframe, svg, nav, footer, meta, link, header').remove();
+  separateBoxes($);
 
   let contentHtml = '';
   if ($('main').length > 0) {

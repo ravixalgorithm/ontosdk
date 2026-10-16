@@ -132,6 +132,24 @@ function demoteHeadings(markdown) {
   }
   return lines.join("\n");
 }
+var BOX = "block|inline-block|flex|inline-flex|grid|inline-grid|table|table-cell|list-item|flow-root";
+var BOX_CLASS = new RegExp(`(?:^|\\s)(?:[^\\s]*:)?(${BOX})(?=\\s|$)`);
+var BOX_STYLE = new RegExp(`display\\s*:\\s*(${BOX})\\b`);
+var CONTAINER = /^(?:inline-)?(?:flex|grid)$/;
+function displayOf(el) {
+  return (el.attr("style") || "").match(BOX_STYLE)?.[1] ?? (el.attr("class") || "").match(BOX_CLASS)?.[1];
+}
+function separateBoxes($) {
+  $("input").not('li > input[type="checkbox"]').remove();
+  const pad = (el) => el.before(" ").after(" ");
+  $("[class], [style], button").each((_, node) => {
+    const el = $(node);
+    if (el.closest("pre, code").length) return;
+    const display = displayOf(el);
+    if (display || node.tagName === "button") pad(el);
+    if (display && CONTAINER.test(display)) el.children().each((_2, c) => void pad($(c)));
+  });
+}
 function extractContent(html, sourceUrl = "Generated Output") {
   const originalSize = html.length;
   const $ = cheerio.load(html);
@@ -155,6 +173,7 @@ function extractContent(html, sourceUrl = "Generated Output") {
     }
   });
   $("script, style, noscript, iframe, svg, nav, footer, meta, link, header").remove();
+  separateBoxes($);
   let contentHtml = "";
   if ($("main").length > 0) {
     contentHtml = $("main").html() || "";
@@ -448,7 +467,9 @@ var AI_BOTS = [
   // Meta
   { name: "Meta-ExternalAgent", company: "Meta", addedAt: "2025-01-01" },
   { name: "Meta-ExternalFetcher", company: "Meta", addedAt: "2025-01-01" },
-  { name: "facebookexternalhit", company: "Meta", addedAt: "2025-03-25" },
+  // Not facebookexternalhit: that is Meta's link-preview fetcher (the card drawn when a
+  // link is shared on Facebook, Instagram or Messenger). Served Markdown, it finds no
+  // og: tags and the card comes out blank.
   { name: "FacebookBot", company: "Meta", addedAt: "2025-01-01" },
   // Mistral
   { name: "MistralBot", company: "Mistral", addedAt: "2025-03-25" },
