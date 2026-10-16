@@ -1,6 +1,6 @@
 {
   "name": "@ontosdk/core",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Shared HTML→Markdown cleaning + AIO scoring engine. Powers @ontosdk/next, the Onto Read API, and the AIO scanner.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
